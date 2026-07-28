@@ -111,6 +111,7 @@
   }
   .pay-card .fee{font-family:'Poppins',sans-serif;font-weight:800;font-size:2.2rem;color:var(--navy);margin-bottom:4px;}
   .pay-card .fee-label{color:var(--muted);font-size:.9rem;margin-bottom:24px;}
+  .pay-btn{width:100%;justify-content:center;font-size:1rem;padding:16px 28px;}
 
   /* Steps - same numbered-circle pattern as landing page's "How the Program Works" */
   .steps{display:flex;flex-direction:column;gap:18px;margin-top:8px;}
@@ -202,10 +203,15 @@
       <div class="fee">$40</div>
       <div class="fee-label">One-time program fee &middot; secures your seat in the Fall 2026 cohort</div>
 
-      <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
-      <script>
-        cartPaypal.Cart({ id: "pp-view-cart" })
-      </script>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="ZTECB4LGTG5JA">
+        <input type="hidden" name="item_name" value="Finger Lakes Procurement Initiative - Program Fee">
+        <input type="hidden" name="amount" value="40.00">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="no_shipping" value="1">
+        <button type="submit" class="btn pay-btn">Pay $40 with PayPal &rarr;</button>
+      </form>
     </div>
   </div>
 </section>
